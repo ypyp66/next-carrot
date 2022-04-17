@@ -5,56 +5,56 @@ import Input from "../components/input";
 import { cls } from "../libs/utils";
 
 const Enter: NextPage = () => {
-  const [method, setMethod] = useState<"email" | "phone">("email");
-  const onEmailClick = () => setMethod("email");
-  const onPhoneClick = () => setMethod("phone");
+  const [method, setMethod] = useState<"이메일" | "휴대폰 번호">("이메일");
+  const onEmailClick = () => setMethod("이메일");
+  const onPhoneClick = () => setMethod("휴대폰 번호");
+
   return (
     <div className="mt-16 px-4">
-      <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
+      <h3 className="text-3xl font-bold text-center">로그인</h3>
       <div className="mt-12">
         <div className="flex flex-col items-center">
-          <h5 className="text-sm text-gray-500 font-medium">Enter using:</h5>
           <div className="grid  border-b  w-full mt-8 grid-cols-2 ">
             <button
               className={cls(
                 "pb-4 font-medium text-sm border-b-2",
-                method === "email"
+                method === "이메일"
                   ? " border-orange-500 text-orange-400"
                   : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onEmailClick}
             >
-              Email
+              이메일
             </button>
             <button
               className={cls(
                 "pb-4 font-medium text-sm border-b-2",
-                method === "phone"
+                method === "휴대폰 번호"
                   ? " border-orange-500 text-orange-400"
                   : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onPhoneClick}
             >
-              Phone
+              휴대폰 번호
             </button>
           </div>
         </div>
         <form className="flex flex-col mt-8 space-y-4">
-          {method === "email" ? (
-            <Input name="email" label="Email address" type="email" required />
+          {method === "이메일" ? (
+            <Input name="email" label="이메일" type="email" required />
           ) : null}
-          {method === "phone" ? (
+          {method === "휴대폰 번호" ? (
             <Input
               name="phone"
-              label="Phone number"
+              label="휴대폰 번호"
               type="number"
               kind="phone"
               required
             />
           ) : null}
-          {method === "email" ? <Button text={"Get login link"} /> : null}
-          {method === "phone" ? (
-            <Button text={"Get one-time password"} />
+          {method === "이메일" ? <Button text={"로그인 링크 전송"} /> : null}
+          {method === "휴대폰 번호" ? (
+            <Button text={"일회용 비밀번호 전송"} />
           ) : null}
         </form>
 
@@ -63,7 +63,7 @@ const Enter: NextPage = () => {
             <div className="absolute w-full border-t border-gray-300" />
             <div className="relative -top-3 text-center ">
               <span className="bg-white px-2 text-sm text-gray-500">
-                Or enter with
+                또는 다음으로 가입
               </span>
             </div>
           </div>
